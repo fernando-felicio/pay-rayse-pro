@@ -2,25 +2,26 @@ package entities;
 
 public class Employee {
 	
-	private String id;
+	private Integer id;
 	private String name;
 	private Double salary; // Wrapper class if it is not necessary to assign salary to the employee
 	
 	public Employee() {
-		return;
+		
 	}
 	
-	public Employee(String id, String name, Double salary) {
+	public Employee(Integer id, String name, Double salary) {
 		this.id = id;
 		this.name = name;
 		this.salary = salary;
 	}
 	
-	public String getId() {
+	
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -40,6 +41,13 @@ public class Employee {
 		this.salary = salary;
 	}
 	
+	public String toString() {
+		return id + ", " + name + ", " + String.format("%.2f", salary);
+	}
+	
+	public void increaseSalary(double percentage) {
+		this.salary += (this.salary * percentage / 100);
+	}
 	
 
 }
